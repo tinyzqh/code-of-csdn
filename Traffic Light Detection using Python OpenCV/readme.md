@@ -12,12 +12,16 @@
 &emsp;&emsp;在detectColor.py文件中主要是检测被TLState.py分割出来的灯的颜色，首先利用OpenCV中的cv2.cvtColor(image,cv2.COLOR_BGR2HSV)函数，将图片从BGR格式转换为HSV格式。之后利用cv2.inRange()函数设阈值，去除背景部分，再进行中值滤波，最后计算非零像素点数，取其像素点最多的那个对应的结果作为最终结果。
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191106092859736.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTA1OTAzMQ==,size_16,color_FFFFFF,t_70)
+
 ![颜色检测模块代码示意图](https://img-blog.csdnimg.cn/20191106092922451.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTA1OTAzMQ==,size_16,color_FFFFFF,t_70)
+
 &emsp;&emsp;在TLState.py文件中，进行灰度处理，之后利用cv2.HoughCircles()函数进行霍夫圆环检测。将检测到的圆环送入detectColor.py文件中的detectColor()函数中进行颜色检测。
 
 ![霍夫圆环检测及颜色识别模块代码示意图](https://img-blog.csdnimg.cn/20191106093017774.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTA1OTAzMQ==,size_16,color_FFFFFF,t_70)
+
 &emsp;&emsp;红绿灯检测得到的结果如下图所示：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191106093103898.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTA1OTAzMQ==,size_16,color_FFFFFF,t_70)
+
 &emsp;&emsp;红绿灯带箭头检测得到的结果如下图所示：
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191106093311898.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTA1OTAzMQ==,size_16,color_FFFFFF,t_70)
